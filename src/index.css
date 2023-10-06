@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.active {
+  @apply font-medium tracking-wider text-base p-2  text-[#CCAF77] md:border-b-2 border-[#CCAF77]
+}
+
+.default {
+  @apply font-medium tracking-wider text-base tracking-wide p-2 text-[#3c3a4f] hover:transition hover:duration-700 hover:delay-100 hover:ease-in-out hover:rounded-tl-2xl hover:rounded-br-2xl hover:text-white hover:bg-[#CCAF77]
+}
