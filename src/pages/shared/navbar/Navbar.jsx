@@ -3,6 +3,8 @@ import logo from "../../../assets/Black_Gold_White_Elegant_Gold___Jewelry_Shop_L
 import { NavLink, Link } from "react-router-dom"
 import { AuthContext } from "../../../providers/AuthProvider";
 import Swal from "sweetalert2";
+import { BiUser } from "react-icons/bi";
+
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext)
     const handleLogOut = () => {
@@ -44,7 +46,7 @@ const Navbar = () => {
         </NavLink>
     </>
     return (
-            <div className="navbar bg-base-100 shadow-xl fixed z-50 md:px-20">
+            <div className="navbar bg-base-100 shadow-lg fixed z-50 md:px-20">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -74,7 +76,7 @@ const Navbar = () => {
                         {user ? (
                             <>
                                 <div className="flex justify-between items-center">
-                                    <div className="h-7 w-7 mr-3 tooltip tooltip-left tooltip-primary"
+                                    <div className="h-7 w-7 mr-3 tooltip tooltip-left tooltip-warning"
                                         data-tip={user.displayName}>
                                         <img
                                             className="h-full w-full rounded-full"
@@ -82,7 +84,7 @@ const Navbar = () => {
                                             alt=""
                                         />
                                     </div>
-                                    <Link to="/login"> <button className="" onClick={handleLogOut}>
+                                    <Link to="/login"> <button className=" rounded-md uppercase px-3 py-1 hover:bg-[#e7d8d8]" onClick={handleLogOut}>
                                         SIGN OUT
                                     </button></Link>
                                 </div>
@@ -90,7 +92,7 @@ const Navbar = () => {
                         ) : (
                             <>
                                 <Link to="/login">
-                                    <button className="tracking-wider border-[1px] border-[#832729] rounded-sm uppercase px-3 py-1">Login</button>
+                                    <button className="tracking-wider flex items-center rounded-md uppercase px-3 py-1 hover:bg-[#e7d8d8]"><BiUser className="text-xl mr-2"></BiUser> Login</button>
                                 </Link>
                             </>
                         )}

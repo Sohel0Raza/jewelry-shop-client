@@ -3,6 +3,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 import Swal from 'sweetalert2';
+import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
     const { singIn, signInWithGoogle } = useContext(AuthContext)
@@ -55,8 +56,34 @@ const Login = () => {
             })
 
     };
+    const handleLoginGoogle = () => {
+        signInWithGoogle()
+            .then(result => {
+                const loginUser = result.user;
+                console.log(loginUser)
+                if (loginUser) {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Login SuccessFully',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+                navigate(from, { replace: true })
+            })
+            .catch(error => {
+                if (error) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error...',
+                        text: `${error}`
+                    })
+                }
+            })
+    }
     return (
-        <div>
+        <div className='md:pt-10'>
             <div className="hero min-h-screen md:mb-2">
                 <div className="md:w-3/12 w-full">
                     <div className="card  mx-5 md:mx-0 border-[1px] border-slate-300 rounded-none shadow-2xl bg-white">
@@ -80,6 +107,10 @@ const Login = () => {
                                 </div>
                                 <div className="form-control mt-6">
                                     <button className="btn-primary">Login</button>
+                                </div>
+                                <div className="divider">OR</div>
+                                <div className="text-center ml-5">
+                                    <button onClick={handleLoginGoogle} className="shadow-2xl border-2 mr-5 hover:border-[#953333] rounded-full p-2"><FcGoogle className="text-2xl"></FcGoogle></button>
                                 </div>
                             </div>
                         </form>

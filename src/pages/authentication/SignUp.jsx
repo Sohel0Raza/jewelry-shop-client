@@ -4,9 +4,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import { updateProfile } from "firebase/auth";
 import Swal from "sweetalert2";
+import { FcGoogle } from "react-icons/fc";
 
 const SignUp = () => {
-    const { createUser } = useContext(AuthContext);
+    const { createUser,signInWithGoogle } = useContext(AuthContext);
     const [passwordType, setPasswordType] = useState("password");
     const [passwordInput, setPasswordInput] = useState("");
     const navigate = useNavigate()
@@ -45,7 +46,7 @@ const SignUp = () => {
                         timer: 1500,
                     });
                 }
-                navigate(from, {replace: true})
+                navigate(from, { replace: true })
             })
             .catch((error) => {
                 form.reset();
@@ -76,9 +77,34 @@ const SignUp = () => {
                 });
         };
     };
-
+    const handleLoginGoogle = () => {
+        signInWithGoogle()
+            .then(result => {
+                const loginUser = result.user;
+                console.log(loginUser)
+                if (loginUser) {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Login SuccessFully',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+                navigate(from, { replace: true })
+            })
+            .catch(error => {
+                if (error) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error...',
+                        text: `${error}`
+                    })
+                }
+            })
+    }
     return (
-        <div>
+        <div className="md:pt-24">
             <div className="hero min-h-screen md:mb-2">
                 <div className="md:w-3/12 w-full">
                     <div className="card  mx-5 md:mx-0 border-[1px] border-slate-300 rounded-none shadow-2xl bg-white">
@@ -109,6 +135,10 @@ const SignUp = () => {
                                 <div className="form-control mt-6">
                                     <input className="btn-primary" type="submit" value="Sign Up" />
                                 </div>
+                                <div className="divider">OR</div>
+                                <div className="text-center ml-5">
+                                    <button onClick={handleLoginGoogle} className="shadow-2xl border-2 mr-5 hover:border-[#953333] rounded-full p-2"><FcGoogle className="text-2xl"></FcGoogle></button>
+                                </div>
                             </div>
                         </form>
                     </div>
@@ -119,6 +149,7 @@ const SignUp = () => {
                             </Link></p>
                         </p>
                     </div>
+
                 </div>
             </div>
         </div>

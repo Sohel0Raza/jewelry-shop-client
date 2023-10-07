@@ -11,6 +11,7 @@ import AuthProvider from './providers/AuthProvider';
 import SignUp from './pages/authentication/SignUp';
 import Home from './pages/home/Home';
 import AddJewelry from './pages/addJewelry/AddJewelry';
+import PrivateRoute from './routes/PrivateRoute';
 
 const router = createBrowserRouter([
   {
@@ -19,19 +20,19 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home/>
+        element: <Home />
       },
       {
         path: "/addJewelry",
-        element: <AddJewelry/>
+        element: <PrivateRoute><AddJewelry /></PrivateRoute>
       },
       {
         path: "/login",
         element: <Login></Login>
       },
       {
-        path:"/signUp",
-        element:<SignUp></SignUp>
+        path: "/signUp",
+        element: <SignUp></SignUp>
       }
     ]
   },
