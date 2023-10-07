@@ -9,12 +9,17 @@ import {
 import Login from './pages/authentication/Login';
 import AuthProvider from './providers/AuthProvider';
 import SignUp from './pages/authentication/SignUp';
+import Home from './pages/home/Home';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
     children: [
+      {
+        path: "/",
+        element: <Home/>
+      },
       {
         path: "/login",
         element: <Login></Login>
