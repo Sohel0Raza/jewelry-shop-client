@@ -1,7 +1,31 @@
+import { useContext } from "react";
 import logo from "../../../assets/Black_Gold_White_Elegant_Gold___Jewelry_Shop_Logo__1_-removebg-preview.png"
 import { NavLink, Link } from "react-router-dom"
+import { AuthContext } from "../../../providers/AuthProvider";
+import Swal from "sweetalert2";
 const Navbar = () => {
-    const user = false
+    const { user, logOut } = useContext(AuthContext)
+    const handleLogOut = () => {
+        logOut()
+            .then(() => {
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: "User LogOut Successful",
+                    showConfirmButton: false,
+                    timer: 1500,
+                });
+            })
+            .catch((error) => {
+                if (error) {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Error...",
+                        text: `${error}`,
+                    });
+                }
+            });
+    };
     const navItem = <>
         <NavLink to="/" className={({ isActive }) => isActive ? "active" : "default"}>
             Home
@@ -59,15 +83,15 @@ const Navbar = () => {
                                             alt=""
                                         />
                                     </div>
-                                    <button className="">
+                                    <Link to="/login"> <button className="" onClick={handleLogOut}>
                                         SIGN OUT
-                                    </button>
+                                    </button></Link>
                                 </div>
                             </>
                         ) : (
                             <>
                                 <Link to="/login">
-                                    <button className="tracking-wider border-[1px] border-[#832729] px-3 py-1">Login</button>
+                                    <button className="tracking-wider border-[1px] border-[#832729] rounded-sm uppercase px-3 py-1">Login</button>
                                 </Link>
                             </>
                         )}
