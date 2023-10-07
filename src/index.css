@@ -21,3 +21,6 @@ body {
 .btn-primary{
   @apply py-2 text-lg bg-[#CCAF77] hover:bg-[#a2864e] text-white 
 }
+.btn-secondary{
+  @apply py-2 text-lg bg-[#832729] hover:bg-[#621b1c] text-white
+}

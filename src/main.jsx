@@ -10,6 +10,7 @@ import Login from './pages/authentication/Login';
 import AuthProvider from './providers/AuthProvider';
 import SignUp from './pages/authentication/SignUp';
 import Home from './pages/home/Home';
+import AddJewelry from './pages/addJewelry/AddJewelry';
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home/>
+      },
+      {
+        path: "/addJewelry",
+        element: <AddJewelry/>
       },
       {
         path: "/login",

@@ -10,7 +10,7 @@ import img3 from "../../../assets/banner/img3.png"
 import img4 from "../../../assets/banner/img4.png"
 const HomeBanner = () => {
     return (
-        <div className='md:py-14'>
+        <div className='pt-14 pb-5'>
             <>
                 <Swiper
                     spaceBetween={30}

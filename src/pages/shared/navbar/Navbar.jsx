@@ -44,7 +44,7 @@ const Navbar = () => {
         </NavLink>
     </>
     return (
-            <div className="navbar bg-base-100 fixed z-50 px-20">
+            <div className="navbar bg-base-100 shadow-xl fixed z-50 md:px-20">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
