@@ -1,7 +1,8 @@
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 const AllCard = ({ item }) => {
-    const { image, jewelryName, price } = item
+    const { _id, image, jewelryName, price } = item
     return (
         <div>
             <div className="card rounded-none bg-base-100 shadow-xl">
@@ -12,7 +13,9 @@ const AllCard = ({ item }) => {
                     <h2 className="font-semibold truncate  text-[#832729]">{jewelryName}</h2>
                     <p className="font-semibold">$ {price}</p>
                     <div className="mx-auto">
-                        <button className="flex items-center btn-buy mt-5">Buy Now <AiOutlineShoppingCart className="ml-2"/></button>
+                        <Link to={`/jewelry/${_id}`}>
+                            <button className="flex items-center btn-detail mt-5">More Details<AiOutlineShoppingCart className="ml-2" /></button>
+                        </Link>
                     </div>
                 </div>
             </div>

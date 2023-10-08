@@ -17,6 +17,9 @@ import {
   QueryClientProvider,
 } from '@tanstack/react-query'
 import AllJewelry from './pages/allJewelry/AllJewelry';
+import Jewelry from './pages/allJewelry/Jewelry';
+import MyJewelrys from './pages/myJewelry/MyJewelrys';
+import UpdateJewelry from './pages/myJewelry/UpdateJewelry';
 
 const queryClient = new QueryClient()
 
@@ -34,8 +37,24 @@ const router = createBrowserRouter([
         element: <AllJewelry />
       },
       {
+        path: "/jewelry/:id",
+        element: <Jewelry />
+      },
+      {
         path: "/addJewelry",
         element: <PrivateRoute><AddJewelry /></PrivateRoute>
+      },
+      {
+        path: "/myJewelry",
+        element: <PrivateRoute><MyJewelrys /></PrivateRoute>
+      },
+      {
+        path: "/updateJewelry/:id",
+        element: < UpdateJewelry />,
+        loader: ({ params }) =>
+          fetch(
+            `http://localhost:5000/allJewelry/${params.id}`
+          ),
       },
       {
         path: "/login",

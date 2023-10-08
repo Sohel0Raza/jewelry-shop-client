@@ -34,12 +34,13 @@ const AddJewelry = () => {
         const image = form.image.value
         const category = form.category.value
         const material = form.material.value
+        const weight = form.weight.value
         const itemAvailability = form.itemAvailability.checked
         const price = form.price.value
         const sellerEmail = form.sellerEmail.value
         const sellerName = form.sellerName.value
         const description = form.description.value
-        const newJewelry = { sellerName, sellerEmail, jewelryName, image, price, category, material, itemAvailability, description }
+        const newJewelry = { sellerName, sellerEmail, jewelryName, image, price, category, material,weight, itemAvailability, description }
 
         fetch("http://localhost:5000/allJewelry", {
             method: "POST",
@@ -136,13 +137,18 @@ const AddJewelry = () => {
                             </div>
                             <div className="mb-4">
                                 <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="title">
-                                    Availability:
+                                    Weight:
                                 </label>
-                                <div className="flex items-center">
-                                    <input type="checkbox" className="form-checkbox h-5 w-5 text-blue-600" required="required" name="itemAvailability" />
-                                    <span className="ml-2 text-gray-700">In Stock</span>
-                                </div>
+                                <input
+                                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                    type="text"
+                                    name="weight"
+                                    placeholder='Weight Gram'
+                                    required="required"
+                                />
                             </div>
+
+
                         </div>
                         <div className="w-full">
                             <div className="mb-4">
@@ -191,7 +197,15 @@ const AddJewelry = () => {
                                     required="required"
                                 />
                             </div>
-
+                            <div className="mb-4">
+                                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="title">
+                                    Availability:
+                                </label>
+                                <div className="flex items-center">
+                                    <input type="checkbox" className="form-checkbox h-5 w-5 text-blue-600" required="required" name="itemAvailability" />
+                                    <span className="ml-2 text-gray-700">In Stock</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div className="text-center">

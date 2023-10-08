@@ -6,8 +6,8 @@ const Footer = () => {
 
     return (
         <div>
-            <footer className="footer p-5 md:py-10 md:px-20 bg-[#EFE3E3] text-lg">
-                <nav className="space-y-6">
+            <footer className="footer p-5 md:pt-16 md:px-20 bg-[#EFE3E3] text-lg">
+                <nav className="space-y-4">
                     <header className="footer-title opacity-90 text-[#832729]">Useful Link</header>
                     <a className="link link-hover">Payment Options</a>
                     <a className="link link-hover">Track your Order</a>
