@@ -54,7 +54,7 @@ const AddJewelry = () => {
                 if (data.insertedId) {
                     Swal.fire({
                         title: "Success!",
-                        text: "Toy Added Successfully",
+                        text: "New Jewelry Added Successfully",
                         icon: "success",
                         confirmButtonText: "OK",
                     });

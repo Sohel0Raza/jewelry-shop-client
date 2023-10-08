@@ -16,6 +16,7 @@ import {
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query'
+import AllJewelry from './pages/allJewelry/AllJewelry';
 
 const queryClient = new QueryClient()
 
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />
+      },
+      {
+        path: "/allJewelry",
+        element: <AllJewelry />
       },
       {
         path: "/addJewelry",

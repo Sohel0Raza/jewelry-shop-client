@@ -24,3 +24,6 @@ body {
 .btn-secondary{
   @apply py-2 text-lg bg-[#832729] hover:bg-[#621b1c] text-white
 }
+.btn-buy{
+ @apply rounded font-medium hover:text-white hover:bg-[#a2864e] border-[1px] border-[#832729] hover:border-transparent px-3 py-2
+}
