@@ -20,6 +20,7 @@ import AllJewelry from './pages/allJewelry/AllJewelry';
 import Jewelry from './pages/allJewelry/Jewelry';
 import MyJewelrys from './pages/myJewelry/MyJewelrys';
 import UpdateJewelry from './pages/myJewelry/UpdateJewelry';
+import ErrorPage from './pages/errorPage/ErrorPage';
 
 const queryClient = new QueryClient()
 
@@ -27,6 +28,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement:<ErrorPage/>,
     children: [
       {
         path: "/",
