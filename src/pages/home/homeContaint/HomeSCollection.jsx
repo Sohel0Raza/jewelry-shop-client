@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { AiOutlineArrowRight } from "react-icons/ai";
 const HomeSCollection = () => {
     return (
-        <div className="md:mx-20 my-10">
+        <div className="md:mx-20 my-10 p-5 md:p-0">
             <Title heading={"Shop By Collections"} subHeading={"Whatever the occasion, we've got a beautiful piece of jewelry for you."}></Title>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
                 <div className="border-[1px] ">
