@@ -2,9 +2,11 @@ import { useContext } from 'react';
 import line from '../../assets/banner/Line-Design.svg';
 import { AuthContext } from '../../providers/AuthProvider';
 import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
 const AddJewelry = () => {
     const { user } = useContext(AuthContext)
-    console.log('user :', user);
+    const navigate = useNavigate()
+    const from = "/allJewelry"
     const CategoryEnum = {
         Necklaces: 'Necklaces',
         Rings: 'Rings',
@@ -14,7 +16,6 @@ const AddJewelry = () => {
         NosePins: 'Nose Pins',
         Anklets: 'Anklets',
         Brooches: 'Brooches',
-        Cufflinks: 'Cufflinks',
         Watches: 'Watches',
     };
     const MaterialEnum = {
@@ -36,7 +37,8 @@ const AddJewelry = () => {
         const material = form.material.value
         const weight = form.weight.value
         const itemAvailability = form.itemAvailability.checked
-        const price = form.price.value
+        const price = parseFloat(form.price.value)
+        console.log('price :', price);
         const sellerEmail = form.sellerEmail.value
         const sellerName = form.sellerName.value
         const description = form.description.value
@@ -61,6 +63,7 @@ const AddJewelry = () => {
                     });
                 }
                 form.reset()
+                navigate(from, {replace:true})
             });
     }
     return (
@@ -111,7 +114,6 @@ const AddJewelry = () => {
                                     <option value={CategoryEnum.Earrings}>{CategoryEnum.Earrings}</option>
                                     <option value={CategoryEnum.Anklets}>{CategoryEnum.Anklets}</option>
                                     <option value={CategoryEnum.Brooches}>{CategoryEnum.Brooches}</option>
-                                    <option value={CategoryEnum.Cufflinks}>{CategoryEnum.Cufflinks}</option>
                                     <option value={CategoryEnum.Watches}>{CategoryEnum.Watches}</option>
                                 </select>
                             </div>
