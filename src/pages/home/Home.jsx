@@ -1,6 +1,7 @@
 import HomeBanner from "./homeContaint/HomeBanner";
 import HomeCategory from "./homeContaint/HomeCategory";
 import HomeSCollection from "./homeContaint/HomeSCollection";
+import NewJewelry from "./homeContaint/NewJewelry";
 import Offer from "./homeContaint/offer/Offer";
 
 const Home = () => {
@@ -10,6 +11,7 @@ const Home = () => {
             <HomeCategory/>
             <HomeSCollection></HomeSCollection>
             <Offer></Offer>
+            <NewJewelry></NewJewelry>
         </div>
     );
 };
