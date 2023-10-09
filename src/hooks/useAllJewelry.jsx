@@ -9,7 +9,7 @@ const useAllJewelry = () => {
         queryKey: ["allJewelry"],
         queryFn: async () => {
             const res = await fetch(
-                "http://localhost:5000/allJewelry"
+                "https://sparkle-gems-server-jnaiufrlc-sohel0raza.vercel.app/allJewelry"
             );
             return res.json();
         },

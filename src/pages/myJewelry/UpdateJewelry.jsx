@@ -16,7 +16,7 @@ const UpdateJewelry = () => {
         const weight = form.weight.value;
         const updatedJewelry = { jewelryName, price, weight, description };
 
-        fetch(`http://localhost:5000/allJewelry/${_id}`, {
+        fetch(`https://sparkle-gems-server-jnaiufrlc-sohel0raza.vercel.app/allJewelry/${_id}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json",

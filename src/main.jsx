@@ -55,7 +55,7 @@ const router = createBrowserRouter([
         element: < UpdateJewelry />,
         loader: ({ params }) =>
           fetch(
-            `http://localhost:5000/allJewelry/${params.id}`
+            `https://sparkle-gems-server-jnaiufrlc-sohel0raza.vercel.app/allJewelry/${params.id}`
           ),
       },
       {

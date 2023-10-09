@@ -17,7 +17,7 @@ const [,,refetch] = useAllJewelry()
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/allJewelry/${_id}`, {
+        fetch(`https://sparkle-gems-server-jnaiufrlc-sohel0raza.vercel.app/allJewelry/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

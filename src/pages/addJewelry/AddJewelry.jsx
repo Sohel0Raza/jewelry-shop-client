@@ -44,7 +44,7 @@ const AddJewelry = () => {
         const description = form.description.value
         const newJewelry = { sellerName, sellerEmail, jewelryName, image, price, category, material,weight, itemAvailability, description }
 
-        fetch("http://localhost:5000/allJewelry", {
+        fetch("https://sparkle-gems-server-jnaiufrlc-sohel0raza.vercel.app/allJewelry", {
             method: "POST",
             headers: {
                 "content-type": "application/json",
